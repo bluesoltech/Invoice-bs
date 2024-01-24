@@ -1,3 +1,34 @@
+@import "../node_modules/rsuite/dist/rsuite.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* width */
+::-webkit-scrollbar {
+    
+    width: 5px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #bdbcbc;
+    border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ececec;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
