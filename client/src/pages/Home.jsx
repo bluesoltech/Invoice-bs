@@ -1,20 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "../components/Dropdown";
 import DatePicker from "rsuite/DatePicker";
 import Item from "../components/Item/Item";
 
 function Home() {
-  const [formData, setFormData] = useState({
-    invoiceId: 1,
-    currentDate: null,
-    dueDate: null,
-    billtoName: "",
-    billtoEmail: "",
-    billtoAddress: "",
-    billfromName: "",
-    billfromEmail: "",
-    billfromAddress: "",
-  });
   const [itemCount, setitemCount] = useState(1);
   const [curr, setCurr] = useState("₹");
   const [taxRate, setTaxrate] = useState(18.0);
@@ -42,8 +31,32 @@ function Home() {
     },
   ];
 
+  const [formData, setFormData] = useState({
+    invoiceId: 1,
+    currency: curr,
+    taxRate: taxRate,
+    discountRate: discountRate,
+    currentDate: null,
+    dueDate: null,
+    billtoName: "",
+    billtoEmail: "",
+    billtoAddress: "",
+    billfromName: "",
+    billfromEmail: "",
+    billfromAddress: "",
+    itemList: [],
+  });
+
+  // const handleAddItem = () => {
+  //   console.log("Handle Add Item Called");
+  //   setFormData({
+  //     ...formData,
+  //     itemList: [...formData.itemList, {}],
+  //   });
+  // };
+
   const renderedItems = Array.from({ length: itemCount }, (_, index) => (
-    <Item key={index} />
+    <Item key={index} id={index} curr={curr} setFormData={setFormData} />
   ));
 
   const handleInputChange = (e) => {
@@ -66,20 +79,20 @@ function Home() {
     });
   };
   const handleCalendarClean = (e) => {
-    console.log(e);
+    // console.log(e);
     setFormData({
       ...formData,
       [e.target.name]: null,
     });
   };
 
+  const handleDeleteItem = (e) => {
+    e.preventDefault();
+    if (itemCount > 0) setitemCount(itemCount - 1);
+  };
   const handleAddItem = (e) => {
     e.preventDefault();
     setitemCount(itemCount + 1);
-  };
-  const handleDeleteItem = (e) => {
-    e.preventDefault();
-    if (itemCount > 1) setitemCount(itemCount - 1);
   };
 
   return (
@@ -202,7 +215,7 @@ function Home() {
               </button>
             </div>
           </div>
-          <div className="min-h-[250px] bg-red-500"></div>
+          <div className="min-h-[250px] border-b-gray-300 border-b-[1px] mx-5 p-4"></div>
           <div className="min-h-[100px] bg-blue-500 relative bottom-0"></div>
         </div>
         <div className="w-[20%] h-full flex flex-col items-center px-3">
