@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "../components/Dropdown";
 import DatePicker from "rsuite/DatePicker";
 import Item from "../components/Item/Item";
+import Category from "../components/Item/Category";
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -14,8 +15,9 @@ function Home() {
     billfromName: "",
     billfromEmail: "",
     billfromAddress: "",
+    items:[],
   });
-  const [itemCount, setitemCount] = useState(1);
+  // const [itemCount, setitemCount] = useState(1);
   const [curr, setCurr] = useState("₹");
   const [taxRate, setTaxrate] = useState(18.0);
   const [discountRate, setDiscountrate] = useState(0.0);
@@ -42,9 +44,9 @@ function Home() {
     },
   ];
 
-  const renderedItems = Array.from({ length: itemCount }, (_, index) => (
-    <Item key={index} />
-  ));
+  // const renderedItems = Array.from({ length: itemCount }, (_, index) => (
+  //   <Item key={index} />
+  // ));
 
   const handleInputChange = (e) => {
     // console.log("Hi", e);
@@ -71,15 +73,6 @@ function Home() {
       ...formData,
       [e.target.name]: null,
     });
-  };
-
-  const handleAddItem = (e) => {
-    e.preventDefault();
-    setitemCount(itemCount + 1);
-  };
-  const handleDeleteItem = (e) => {
-    e.preventDefault();
-    if (itemCount > 1) setitemCount(itemCount - 1);
   };
 
   return (
@@ -184,23 +177,7 @@ function Home() {
             </div>
           </div>
           <div className="border-b-gray-300 border-b-[1px] mx-5 p-4">
-            <div className=" w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg gap-2">
-              {renderedItems}
-            </div>
-            <div className="mt-4">
-              <button
-                onClick={handleAddItem}
-                className="bg-blue-500 text-white rounded-xl p-2 hover:bg-blue-700"
-              >
-                Add Item
-              </button>
-              <button
-                onClick={handleDeleteItem}
-                className="ml-4 bg-blue-500 text-white rounded-xl p-2 hover:bg-blue-700"
-              >
-                Remove Last Item
-              </button>
-            </div>
+            <Category />
           </div>
           <div className="min-h-[250px] bg-red-500"></div>
           <div className="min-h-[100px] bg-blue-500 relative bottom-0"></div>
