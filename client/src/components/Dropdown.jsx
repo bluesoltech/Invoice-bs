@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
@@ -7,7 +7,11 @@ function classNames(...classes) {
 }
 
 export default function Dropdown({ data, title, setData }) {
+  // console.log(title, data);
   const [selected, setSelected] = useState("");
+  useEffect(() => {
+    setSelected("");
+  }, [data]);
   return (
     <Menu as="div" className="relative inline-block text-left w-full">
       <div>
