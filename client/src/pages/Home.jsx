@@ -44,21 +44,21 @@ function Home() {
     },
   ];
 
-  const [formData, setFormData] = useState({
-    invoiceId: 1,
-    currency: curr,
-    taxRate: taxRate,
-    discountRate: discountRate,
-    currentDate: null,
-    dueDate: null,
-    billtoName: "",
-    billtoEmail: "",
-    billtoAddress: "",
-    billfromName: "",
-    billfromEmail: "",
-    billfromAddress: "",
-    itemList: [],
-  });
+  // const [formData, setFormData] = useState({
+  //   invoiceId: 1,
+  //   currency: curr,
+  //   taxRate: taxRate,
+  //   discountRate: discountRate,
+  //   currentDate: null,
+  //   dueDate: null,
+  //   billtoName: "",
+  //   billtoEmail: "",
+  //   billtoAddress: "",
+  //   billfromName: "",
+  //   billfromEmail: "",
+  //   billfromAddress: "",
+  //   itemList: [],
+  // });
 
   // const handleAddItem = () => {
   //   console.log("Handle Add Item Called");
