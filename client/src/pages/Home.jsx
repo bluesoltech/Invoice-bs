@@ -5,18 +5,6 @@ import Item from "../components/Item/Item";
 import Category from "../components/Item/Category";
 
 function Home() {
-  const [formData, setFormData] = useState({
-    invoiceId: 1,
-    currentDate: null,
-    dueDate: null,
-    billtoName: "",
-    billtoEmail: "",
-    billtoAddress: "",
-    billfromName: "",
-    billfromEmail: "",
-    billfromAddress: "",
-    items:[],
-  });
   // const [itemCount, setitemCount] = useState(1);
   const [curr, setCurr] = useState("₹");
   const [taxRate, setTaxrate] = useState(18.0);
@@ -57,7 +45,10 @@ function Home() {
     billfromName: "",
     billfromEmail: "",
     billfromAddress: "",
-    itemList: [],
+    itemList: {
+      category: "",
+      subcategory: [],
+    },
   });
 
   // const handleAddItem = () => {
@@ -201,7 +192,7 @@ function Home() {
             </div>
           </div>
           <div className="border-b-gray-300 border-b-[1px] mx-5 p-4">
-            <Category />
+            <Category setFormData={setFormData} formData={formData} />
           </div>
           <div className="min-h-[250px] border-b-gray-300 border-b-[1px] mx-5 p-4"></div>
           <div className="min-h-[100px] bg-blue-500 relative bottom-0"></div>

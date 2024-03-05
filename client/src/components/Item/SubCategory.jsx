@@ -1,17 +1,50 @@
-import React from 'react'
-import Cell from './Cell'
+import React, { useState } from "react";
+import DataTable from "./Table";
+import AddItem from "./AddItem";
 
-function SubCategory() {
+function SubCategory({ setSubCategory, subcategorys, item }) {
+  const [addPopUp, setAddpopUp] = useState(false);
+  const [items, setItems] = useState([]);
+
+  const handleDeleteSubCategory = () => {
+    console.log(item.id);
+    const filteredSubCategory = subcategorys.filter((subcategory) => {
+      return subcategory.id.toString() != item.id.toString();
+    });
+    setSubCategory(filteredSubCategory);
+  };
+
   return (
-    <div className='w-full border-[1px] border-x-[1px] border-b-[2px] border-gray-400'>
-        <div className='w-full border-gray-400 p-2'>SubCategory</div>
-        <Cell id="No." title="Particulars" size="Size" sqft="Sqft" qty="Qty" days="Days" details="Details" rate="Rate" amount="Amount" action={<button className='bg-red-500 rounded-xl hover:bg-red-700 text-white focus:border-none px-3 py-1'>Delete</button>} />
-        <Cell id="No." title="Particulars" size="Size" sqft="Sqft" qty="Qty" days="Days" details="Details" rate="Rate" amount="Amount" action={<button className='bg-red-500 rounded-xl hover:bg-red-700 text-white focus:border-none px-3 py-1'>Delete</button>} />
-        <Cell id="No." title="Particulars" size="Size" sqft="Sqft" qty="Qty" days="Days" details="Details" rate="Rate" amount="Amount" action={<button className='bg-red-500 rounded-xl hover:bg-red-700 text-white focus:border-none px-3 py-1'>Delete</button>} />
-        <Cell id="No." title="Particulars" size="Size" sqft="Sqft" qty="Qty" days="Days" details="Details" rate="Rate" amount="Amount" action={<button className='bg-red-500 rounded-xl hover:bg-red-700 text-white focus:border-none px-3 py-1'>Delete</button>} />
-        <div className='flex justify-end w-full my-4 px-4'><button className='bg-blue-500 border-none text-white p-2 rounded-xl focus:border-none hover:bg-blue-700'>Add Item</button></div>
+    <div className="w-full border-1 border-gray-400">
+      <AddItem
+        addPopUp={addPopUp}
+        setAddpopUp={setAddpopUp}
+        setItems={setItems}
+        items={items}
+      />
+      <div className="flex justify-between p-2">
+        <input
+          placeholder="SubCategory"
+          className="w-auto border-black border-b-[1px] px-2 focus:outline-none"
+        ></input>
+        <div className="flex gap-3 items-center justify-center">
+          <button
+            onClick={() => setAddpopUp(true)}
+            className="bg-blue-500 text-white rounded-xl p-2 hover:bg-blue-700 focus:outline-none"
+          >
+            Add Item
+          </button>
+          <button
+            onClick={handleDeleteSubCategory}
+            className="bg-red-500 px-2 py-2 rounded-xl text-white hover:bg-red-700"
+          >
+            Delete SubCategory
+          </button>
+        </div>
+      </div>
+      <DataTable items={items} setItems={setItems} />
     </div>
-  )
+  );
 }
 
 export default SubCategory;
