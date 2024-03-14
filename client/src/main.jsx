@@ -6,20 +6,24 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthContextProvider>
-        <ToastContainer
-          theme="dark"
-          position="top-right"
-          autoClose={3000}
-          closeOnClick
-          pauseOnHover={false}
-        />
-        <App />
-      </AuthContextProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AuthContextProvider>
+          <ToastContainer
+            theme="dark"
+            position="top-right"
+            autoClose={3000}
+            closeOnClick
+            pauseOnHover={false}
+          />
+          <App />
+        </AuthContextProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

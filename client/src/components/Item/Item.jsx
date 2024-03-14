@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "../Dropdown";
-import data from "../../assets/data/ItemList";
 
 function Item({ id, curr, setFormData }) {
   const [itemData, setItemData] = useState({

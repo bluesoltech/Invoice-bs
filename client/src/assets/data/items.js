@@ -9,6 +9,7 @@ const data = [
     days: "",
     details: "",
     rate: 0,
+    amount: 0,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const data = [
     days: "",
     details: "",
     rate: 0,
+    amount: 0,
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const data = [
     days: "",
     details: "",
     rate: 0,
+    amount: 0,
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const data = [
     days: "",
     details: "",
     rate: 110,
+    amount: 0,
   },
   {
     id: 5,
@@ -53,6 +57,7 @@ const data = [
     days: "1",
     details: "",
     rate: 120,
+    amount: 0,
   },
   {
     id: 6,
@@ -64,6 +69,7 @@ const data = [
     days: "2",
     details: "",
     rate: 4000,
+    amount: 0,
   },
   {
     id: 7,
@@ -75,6 +81,7 @@ const data = [
     days: "35",
     details: "",
     rate: 30,
+    amount: 0,
   },
   {
     id: 8,
@@ -86,6 +93,7 @@ const data = [
     days: "2",
     details: "",
     rate: 5000,
+    amount: 0,
   },
   {
     id: 9,
@@ -97,6 +105,7 @@ const data = [
     days: "90",
     details: "",
     rate: 10000,
+    amount: 0,
   },
   {
     id: 10,
@@ -108,6 +117,7 @@ const data = [
     days: "90",
     details: "",
     rate: 12000,
+    amount: 0,
   },
   {
     id: 11,
@@ -119,6 +129,7 @@ const data = [
     days: "",
     details: "",
     rate: 37000,
+    amount: 0,
   },
   {
     id: 12,
@@ -130,6 +141,7 @@ const data = [
     days: "2",
     details: "",
     rate: 20,
+    amount: 0,
   },
   {
     id: 13,
@@ -141,6 +153,7 @@ const data = [
     days: "2",
     details: "",
     rate: 150,
+    amount: 0,
   },
   {
     id: 14,
@@ -152,6 +165,7 @@ const data = [
     days: "2",
     details: "",
     rate: 900,
+    amount: 0,
   },
   {
     id: 15,
@@ -163,6 +177,7 @@ const data = [
     days: "2",
     details: "",
     rate: 1400,
+    amount: 0,
   },
   {
     id: 16,
@@ -174,6 +189,7 @@ const data = [
     days: "2",
     details: "",
     rate: 1000,
+    amount: 0,
   },
   {
     id: 17,
@@ -185,6 +201,7 @@ const data = [
     days: "",
     details: "pair",
     rate: 8000,
+    amount: 0,
   },
   {
     id: 18,
@@ -196,6 +213,7 @@ const data = [
     days: "2",
     details: "ft",
     rate: 25,
+    amount: 0,
   },
   {
     id: 19,
@@ -207,6 +225,7 @@ const data = [
     days: "",
     details: "",
     rate: 7875,
+    amount: 0,
   },
   {
     id: 20,
@@ -218,6 +237,7 @@ const data = [
     days: "",
     details: "ft",
     rate: 2400,
+    amount: 0,
   },
   {
     id: 21,
@@ -229,6 +249,7 @@ const data = [
     days: "2",
     details: "",
     rate: 800,
+    amount: 0,
   },
   {
     id: 22,
@@ -240,6 +261,7 @@ const data = [
     days: "2",
     details: "3 person Team",
     rate: 25000,
+    amount: 0,
   },
   {
     id: 23,
@@ -251,6 +273,7 @@ const data = [
     days: "2",
     details: "",
     rate: 650,
+    amount: 0,
   },
   {
     id: 24,
@@ -262,6 +285,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 26000,
+    amount: 0,
   },
   {
     id: 25,
@@ -273,6 +297,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 45,
+    amount: 0,
   },
   {
     id: 26,
@@ -284,6 +309,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 45,
+    amount: 0,
   },
   {
     id: 27,
@@ -295,6 +321,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 45,
+    amount: 0,
   },
   {
     id: 28,
@@ -306,6 +333,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 45,
+    amount: 0,
   },
   {
     id: 29,
@@ -317,6 +345,7 @@ const data = [
     days: "2",
     details: "Frome Shirt",
     rate: 80,
+    amount: 0,
   },
   {
     id: 30,
@@ -328,6 +357,7 @@ const data = [
     days: 2,
     details: "Non-Woven Bag",
     rate: 5,
+    amount: 0,
   },
   {
     id: 31,
@@ -339,6 +369,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 45,
+    amount: 0,
   },
   {
     id: 32,
@@ -350,6 +381,7 @@ const data = [
     days: "",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 33,
@@ -361,6 +393,7 @@ const data = [
     days: "",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 34,
@@ -372,6 +405,7 @@ const data = [
     days: "",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 35,
@@ -383,6 +417,7 @@ const data = [
     days: "",
     details: "",
     rate: 110,
+    amount: 0,
   },
   {
     id: 36,
@@ -394,6 +429,7 @@ const data = [
     days: "1",
     details: "",
     rate: 30,
+    amount: 0,
   },
   {
     id: 37,
@@ -405,6 +441,7 @@ const data = [
     days: "",
     details: "Promo run",
     rate: 35000,
+    amount: 0,
   },
   {
     id: 38,
@@ -416,6 +453,7 @@ const data = [
     days: "1",
     details: "",
     rate: 800,
+    amount: 0,
   },
   {
     id: 39,
@@ -427,6 +465,7 @@ const data = [
     days: "",
     details: "",
     rate: 45,
+    amount: 0,
   },
   {
     id: 40,
@@ -438,6 +477,7 @@ const data = [
     days: "",
     details: "",
     rate: 1400,
+    amount: 0,
   },
   {
     id: 41,
@@ -449,6 +489,7 @@ const data = [
     days: "1",
     details: "",
     rate: 8000,
+    amount: 0,
   },
   {
     id: 42,
@@ -460,6 +501,7 @@ const data = [
     days: "",
     details: "",
     rate: 8000,
+    amount: 0,
   },
   {
     id: 43,
@@ -471,6 +513,7 @@ const data = [
     days: "1",
     details: "pair",
     rate: 9500,
+    amount: 0,
   },
   {
     id: 44,
@@ -482,6 +525,7 @@ const data = [
     days: "",
     details: "",
     rate: 130,
+    amount: 0,
   },
   {
     id: 45,
@@ -493,6 +537,7 @@ const data = [
     days: "",
     details: "",
     rate: 4500,
+    amount: 0,
   },
   {
     id: 46,
@@ -504,6 +549,7 @@ const data = [
     days: "",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 47,
@@ -515,6 +561,7 @@ const data = [
     days: "",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 48,
@@ -526,6 +573,7 @@ const data = [
     days: "",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 49,
@@ -537,6 +585,7 @@ const data = [
     days: "1",
     details: "All barricading black painted",
     rate: 150,
+    amount: 0,
   },
   {
     id: 50,
@@ -548,6 +597,7 @@ const data = [
     days: "1",
     details: "ft",
     rate: 35,
+    amount: 0,
   },
   {
     id: 51,
@@ -559,6 +609,7 @@ const data = [
     days: "1",
     details: "fr",
     rate: 150,
+    amount: 0,
   },
   {
     id: 52,
@@ -570,6 +621,7 @@ const data = [
     days: "",
     details: "",
     rate: 150,
+    amount: 0,
   },
   {
     id: 53,
@@ -581,6 +633,7 @@ const data = [
     days: "1",
     details: "",
     rate: 150,
+    amount: 0,
   },
   {
     id: 54,
@@ -592,6 +645,7 @@ const data = [
     days: "1",
     details: "",
     rate: 20,
+    amount: 0,
   },
   {
     id: 55,
@@ -603,6 +657,7 @@ const data = [
     days: "1",
     details: "",
     rate: 100,
+    amount: 0,
   },
   {
     id: 56,
@@ -614,6 +669,7 @@ const data = [
     days: "1",
     details: "",
     rate: 100,
+    amount: 0,
   },
   {
     id: 57,
@@ -625,6 +681,7 @@ const data = [
     days: "1",
     details: "",
     rate: 2000,
+    amount: 0,
   },
   {
     id: 58,
@@ -636,6 +693,7 @@ const data = [
     days: "",
     details: "",
     rate: 8000,
+    amount: 0,
   },
   {
     id: 59,
@@ -647,6 +705,7 @@ const data = [
     days: "1",
     details: "Grey carpet",
     rate: 65,
+    amount: 0,
   },
   {
     id: 60,
@@ -658,6 +717,7 @@ const data = [
     days: "1",
     details: "ft",
     rate: 35,
+    amount: 0,
   },
   {
     id: 61,
@@ -669,6 +729,7 @@ const data = [
     days: "1",
     details: "",
     rate: 6,
+    amount: 0,
   },
   {
     id: 62,
@@ -680,6 +741,7 @@ const data = [
     days: "1",
     details: "",
     rate: 6,
+    amount: 0,
   },
   {
     id: 63,
@@ -691,6 +753,7 @@ const data = [
     days: "1",
     details: "Compliment by Blue Soltech",
     rate: 3500,
+    amount: 0,
   },
   {
     id: 64,
@@ -702,6 +765,7 @@ const data = [
     days: "1",
     details: "",
     rate: 45,
+    amount: 0,
   },
   {
     id: 65,
@@ -713,6 +777,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 66,
@@ -724,6 +789,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 67,
@@ -735,6 +801,7 @@ const data = [
     days: "1",
     details: "As required",
     rate: 1,
+    amount: 0,
   },
   {
     id: 68,
@@ -746,6 +813,7 @@ const data = [
     days: "1",
     details: "As required",
     rate: 1,
+    amount: 0,
   },
   {
     id: 69,
@@ -757,6 +825,7 @@ const data = [
     days: "1",
     details: "2 nos",
     rate: 1,
+    amount: 0,
   },
   {
     value: "Cabling for all Equipment",
@@ -767,6 +836,7 @@ const data = [
     days: "1",
     details: "As required",
     rate: 1,
+    amount: 0,
   },
   {
     id: 70,
@@ -778,6 +848,7 @@ const data = [
     days: "1",
     details: "As required",
     rate: 1,
+    amount: 0,
   },
   {
     id: 71,
@@ -789,6 +860,7 @@ const data = [
     days: "1",
     details: "As required",
     rate: 1,
+    amount: 0,
   },
   {
     id: 72,
@@ -800,6 +872,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 73,
@@ -811,6 +884,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 74,
@@ -822,6 +896,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 75,
@@ -833,6 +908,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 76,
@@ -844,6 +920,7 @@ const data = [
     days: "1",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 77,
@@ -855,6 +932,7 @@ const data = [
     days: "1",
     details: "",
     rate: null,
+    amount: 0,
   },
   {
     id: 78,
@@ -866,6 +944,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 79,
@@ -877,6 +956,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 80,
@@ -888,6 +968,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 81,
@@ -899,6 +980,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 82,
@@ -910,6 +992,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
+    amount: 0,
   },
   {
     id: 83,
@@ -921,6 +1004,7 @@ const data = [
     days: "1",
     details: "",
     rate: 20,
+    amount: 0,
   },
   {
     id: 84,
@@ -932,6 +1016,7 @@ const data = [
     days: "1",
     details: "",
     rate: 600,
+    amount: 0,
   },
   {
     id: 85,
@@ -943,6 +1028,7 @@ const data = [
     days: "1",
     details: "",
     rate: 500,
+    amount: 0,
   },
   {
     id: 86,
@@ -954,6 +1040,7 @@ const data = [
     days: "1",
     details: "",
     rate: 450,
+    amount: 0,
   },
   {
     id: 87,
@@ -965,6 +1052,7 @@ const data = [
     days: "1",
     details: "",
     rate: 150,
+    amount: 0,
   },
   {
     id: 88,
@@ -976,6 +1064,7 @@ const data = [
     days: "1",
     details: "",
     rate: 8000,
+    amount: 0,
   },
   {
     id: 89,
@@ -987,6 +1076,7 @@ const data = [
     days: "1",
     details: "",
     rate: 800,
+    amount: 0,
   },
   {
     id: 90,
@@ -998,6 +1088,7 @@ const data = [
     days: "1",
     details: "",
     rate: 450,
+    amount: 0,
   },
   {
     id: 91,
@@ -1009,6 +1100,7 @@ const data = [
     days: "1",
     details: "",
     rate: 15000,
+    amount: 0,
   },
   {
     id: 92,
@@ -1020,6 +1112,7 @@ const data = [
     days: "1",
     details: "",
     rate: 8000,
+    amount: 0,
   },
   {
     id: 93,
@@ -1031,6 +1124,7 @@ const data = [
     days: "1",
     details: "",
     rate: 18000,
+    amount: 0,
   },
   {
     id: 94,
@@ -1042,6 +1136,7 @@ const data = [
     days: "1",
     details: "",
     rate: 6500,
+    amount: 0,
   },
   {
     value: "Parking area Gensets",
@@ -1052,6 +1147,7 @@ const data = [
     days: "1",
     details: "",
     rate: 6500,
+    amount: 0,
   },
   {
     value: "DJ with DJ console",
@@ -1062,6 +1158,7 @@ const data = [
     days: "1",
     details: "",
     rate: 4000,
+    amount: 0,
   },
   {
     value: "Volunteers for event",
@@ -1072,6 +1169,7 @@ const data = [
     days: "1",
     details: "",
     rate: 800,
+    amount: 0,
   },
   {
     value: "Volunteers for route",
@@ -1082,6 +1180,7 @@ const data = [
     days: "1",
     details: "",
     rate: 200,
+    amount: 0,
   },
   {
     value: "Housekeeping Staff - Event Day",
@@ -1092,6 +1191,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1000,
+    amount: 0,
   },
   {
     value: "Dustbins with bags",
@@ -1102,6 +1202,7 @@ const data = [
     days: "1",
     details: "",
     rate: 200,
+    amount: 0,
   },
   {
     value: "Parking Male security guard",
@@ -1112,6 +1213,7 @@ const data = [
     days: "1",
     details: "",
     rate: 900,
+    amount: 0,
   },
   {
     value: "Female bouncers",
@@ -1122,6 +1224,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1400,
+    amount: 0,
   },
   {
     value: "Male bouncers",
@@ -1132,6 +1235,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1400,
+    amount: 0,
   },
   {
     value: "Main event toilets",
@@ -1142,6 +1246,7 @@ const data = [
     days: "1",
     details: "AMC",
     rate: 1,
+    amount: 0,
   },
   {
     id: 95,
@@ -1153,6 +1258,7 @@ const data = [
     days: "1",
     details: "",
     rate: 12000,
+    amount: 0,
   },
   {
     value: "Dholi",
@@ -1163,6 +1269,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1500,
+    amount: 0,
   },
   {
     value: "Breakfast",
@@ -1173,6 +1280,7 @@ const data = [
     days: "1",
     details: "",
     rate: 75,
+    amount: 0,
   },
   {
     value: "Hydration",
@@ -1183,6 +1291,7 @@ const data = [
     days: "1",
     details: "",
     rate: 50,
+    amount: 0,
   },
   {
     value: "Photography & diesel Videos",
@@ -1193,6 +1302,7 @@ const data = [
     days: "1",
     details: "6 Parson Team",
     rate: 6000,
+    amount: 0,
   },
   {
     value: "Water boatel 250ml",
@@ -1203,6 +1313,7 @@ const data = [
     days: "1",
     details: "",
     rate: 4.5,
+    amount: 0,
   },
   {
     value: "Race Director & Race Managements",
@@ -1213,6 +1324,7 @@ const data = [
     days: "1",
     details: "Vishnu Kamaliya(Ultra Marathoner)",
     rate: 1,
+    amount: 0,
   },
 ];
 

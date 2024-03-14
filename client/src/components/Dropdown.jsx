@@ -1,17 +1,16 @@
 import { Fragment, useState, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { combineSlices } from "@reduxjs/toolkit";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Dropdown({ data, title, setData }) {
+export default function Dropdown({ data, title, formData, setData }) {
   // console.log(title, data);
   const [selected, setSelected] = useState("");
-  useEffect(() => {
-    setSelected("");
-  }, [data]);
+  // console.log(selected);
   return (
     <Menu as="div" className="relative inline-block text-left w-full">
       <div>
@@ -43,7 +42,7 @@ export default function Dropdown({ data, title, setData }) {
                       className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
                       onClick={() => {
                         setSelected(el.value);
-                        setData(el.symbol);
+                        setData({ ...formData, ["currency"]: el.symbol });
                       }}
                     >
                       {el.value}

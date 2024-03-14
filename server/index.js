@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import authRoute from "./route/auth.js";
+import invoiceRoute from "./route/invoice.js";
 
 dotenv.config({ path: "./.env" });
 
@@ -34,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 app.use("/api/auth", authRoute);
+app.use("/api/invoice", invoiceRoute);
 
 app.listen(port, () => {
   connectDB();
