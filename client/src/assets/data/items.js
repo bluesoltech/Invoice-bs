@@ -828,17 +828,6 @@ const data = [
     amount: 0,
   },
   {
-    value: "Cabling for all Equipment",
-    symbol: "Cabling for all Equipment",
-    size: "",
-    sqft: "",
-    qty: 1,
-    days: "1",
-    details: "As required",
-    rate: 1,
-    amount: 0,
-  },
-  {
     id: 70,
     value: "Sound Engineer",
     symbol: "Sound Engineer",
@@ -1139,6 +1128,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 95,
     value: "Parking area Gensets",
     symbol: "Parking area Gensets",
     size: "125kVA",
@@ -1150,6 +1140,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 96,
     value: "DJ with DJ console",
     symbol: "DJ with DJ console",
     size: "",
@@ -1161,6 +1152,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 97,
     value: "Volunteers for event",
     symbol: "Volunteers for event",
     size: "",
@@ -1172,6 +1164,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 98,
     value: "Volunteers for route",
     symbol: "Volunteers for route",
     size: "",
@@ -1183,6 +1176,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 99,
     value: "Housekeeping Staff - Event Day",
     symbol: "Housekeeping Staff - Event Day",
     size: "",
@@ -1194,6 +1188,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 100,
     value: "Dustbins with bags",
     symbol: "Dustbins with bags",
     size: "",
@@ -1205,6 +1200,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 101,
     value: "Parking Male security guard",
     symbol: "Parking Male security guard",
     size: "",
@@ -1216,6 +1212,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 102,
     value: "Female bouncers",
     symbol: "Female bouncers",
     size: "",
@@ -1227,6 +1224,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 103,
     value: "Male bouncers",
     symbol: "Male bouncers",
     size: "",
@@ -1238,6 +1236,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 104,
     value: "Main event toilets",
     symbol: "Main event toilets",
     size: "",
@@ -1249,7 +1248,7 @@ const data = [
     amount: 0,
   },
   {
-    id: 95,
+    id: 105,
     value: "Parking area Gensets",
     symbol: "Parking area Gensets",
     size: "",
@@ -1261,6 +1260,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 106,
     value: "Dholi",
     symbol: "Dholi",
     size: "",
@@ -1272,6 +1272,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 107,
     value: "Breakfast",
     symbol: "Breakfast",
     size: "",
@@ -1283,6 +1284,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 108,
     value: "Hydration",
     symbol: "Hydration",
     size: "",
@@ -1294,6 +1296,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 109,
     value: "Photography & diesel Videos",
     symbol: "Hydration",
     size: "",
@@ -1305,6 +1308,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 110,
     value: "Water boatel 250ml",
     symbol: "Water boatel 250ml",
     size: "",
@@ -1316,6 +1320,7 @@ const data = [
     amount: 0,
   },
   {
+    id: 111,
     value: "Race Director & Race Managements",
     symbol: "Race Director & Race Managements",
     size: "",
@@ -1323,6 +1328,18 @@ const data = [
     qty: 1,
     days: "1",
     details: "Vishnu Kamaliya(Ultra Marathoner)",
+    rate: 1,
+    amount: 0,
+  },
+  {
+    id: 112,
+    value: "Cabling for all Equipment",
+    symbol: "Cabling for all Equipment",
+    size: "",
+    sqft: "",
+    qty: 1,
+    days: "1",
+    details: "As required",
     rate: 1,
     amount: 0,
   },

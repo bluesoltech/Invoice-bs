@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 import { RxReload } from "react-icons/rx";
 
-function Invoice({ setFormData, setTitle }) {
+function Invoice({ setFormData, setTitle, setTaxrate, setDiscountrate }) {
   const dispatch = useDispatch();
   const [invoiceList, setInvoiceList] = useState([]);
   const [query, setQuery] = useState("");
@@ -58,7 +58,6 @@ function Invoice({ setFormData, setTitle }) {
     // console.log(data);
     setFormData(data);
     setTitle(invoice.title);
-    // console.log(invoice.items);
     dispatch(update(invoice.items));
   };
 
