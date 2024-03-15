@@ -11,14 +11,19 @@ function AddItem({ addPopUp, setAddpopUp, items, setItems }) {
     e.preventDefault();
     const itemArray = [...items];
     const findItem = items.filter((i) => {
-      return i.id.toString() == addedItem.id.toString();
+      return i.id.toString() == addedItem?.id?.toString();
     });
     // console.log(findItem);
     if (findItem.length == 0) {
-      itemArray.push(addedItem);
-      setItems(itemArray);
-      setQuery("");
-      setAddeditem({});
+      console.log();
+      if (Object.keys(addedItem).length == 0) {
+        toast.error("Select an Item First");
+      } else {
+        itemArray.push(addedItem);
+        setItems(itemArray);
+        setQuery("");
+        setAddeditem({});
+      }
     } else {
       toast.error("Items already Exist");
       setQuery("");

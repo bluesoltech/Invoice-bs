@@ -5,6 +5,7 @@ import { RxCrossCircled } from "react-icons/rx";
 
 import Category from "../components/Item/Category";
 import logo from "../assets/logo.png";
+import signature from "../assets/signature.png";
 
 import { useSelector } from "react-redux";
 
@@ -37,8 +38,8 @@ function Home() {
   const [review, setReview] = useState(false);
   const [reviewInvoice, setReviewInvoice] = useState(false);
   // const [curr, setCurr] = useState("₹");
-  const [taxRate, setTaxrate] = useState(18.0);
-  const [discountRate, setDiscountrate] = useState(0.0);
+  // const [taxRate, setTaxrate] = useState(18.0);
+  // const [discountRate, setDiscountrate] = useState(0.0);
   const Currency = [
     {
       symbol: "₹",
@@ -65,16 +66,17 @@ function Home() {
   const [formData, setFormData] = useState({
     invoiceId: "",
     currency: "₹",
-    taxRate: taxRate,
-    discountRate: discountRate,
+    taxRate: 18.0,
+    discountRate: 0,
     currentDate: new Date(),
     dueDate: new Date(),
     billtoName: "",
     billtoEmail: "",
     billtoAddress: "",
-    billfromName: "",
-    billfromEmail: "",
-    billfromAddress: "",
+    billfromName: "Blue Soltech",
+    billfromEmail: "info@bluesoltech.com",
+    billfromAddress:
+      "102, Solaris Business Hub, Bhuyangdev, Sola Road, Ahmedabad, Gujarat 380063",
     note: "",
   });
 
@@ -210,12 +212,13 @@ function Home() {
   subTotal = allAmount.reduce((acc, item) => {
     return acc + item.totalAmount;
   }, 0);
-  let discount = (discountRate / 100) * subTotal;
-  let tax = (subTotal - discount) * (taxRate / 100);
+  let discount = (formData.discountRate / 100) * subTotal;
+  let tax = (subTotal - discount) * (formData.taxRate / 100);
   let total = subTotal - discount + tax;
   // console.log(allAmount);
   //print
   const componentRef = useRef();
+  const componentInvoiceRef = useRef();
 
   const handlePrint = () => {
     window.print();
@@ -247,7 +250,10 @@ function Home() {
             />
           </div>
           <div ref={componentRef} className="flex flex-col p-2 gap-5">
-            <div className="flex justify-between">
+            <div className="flex flex-col">
+              <div className="self-end">
+                <img src={logo} className="w-[55px]" alt="" />
+              </div>
               <div className="flex flex-col gap-0">
                 <p className="text-2xl">Blue Soltech</p>
                 <p className="text-gray-500">
@@ -259,24 +265,29 @@ function Home() {
                   {formData.dueDate.getFullYear()}
                 </p> */}
               </div>
-              <div className="">
-                <img src={logo} className="w-[55px]" alt="" />
-              </div>
             </div>
             <div className="flex gap-8">
-              <div className="flex flex-col">
-                <p className="text-lg m-0 font-semibold">Billed to:</p>
+              <div className="flex max-w-[30%] flex-col">
+                <p className="text-lg  m-0 font-semibold">Billed to:</p>
                 <p className="text-sm m-0">{formData.billtoName}</p>
-                <p className="text-sm m-0">{formData.billtoAddress}</p>
-                <p className="text-sm m-0">{formData.billtoEmail}</p>
+                <p className="text-[11px] text-gray-400 m-0">
+                  {formData.billtoEmail}
+                </p>
+                <p className="text-[11px] text-gray-400 m-0">
+                  {formData.billtoAddress}
+                </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex max-w-[30%] flex-col">
                 <p className="text-lg m-0 font-semibold">Billed From:</p>
                 <p className="text-sm m-0">{formData.billfromName}</p>
-                <p className="text-sm m-0">{formData.billfromAddress}</p>
-                <p className="text-sm m-0">{formData.billfromEmail}</p>
+                <p className="text-[11px] font-light text-gray-400 m-0">
+                  {formData.billfromEmail}
+                </p>
+                <p className="text-[11px] font-light text-gray-400 m-0">
+                  {formData.billfromAddress}
+                </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex max-w-[30%] flex-col">
                 <p className="text-lg m-0 font-semibold">Date Of Issue</p>
                 <p className="text-sm m-0">
                   {formData.currentDate.getDate()}-
@@ -297,6 +308,7 @@ function Home() {
                     <table className="w-full border-[1px]">
                       <thead>
                         <tr className="border-[1px]">
+                          <th className="border-[1px]">Sr. no.</th>
                           <th className="border-[1px]">Particulars</th>
                           <th className="border-[1px]">Size</th>
                           <th className="border-[1px]">SqFt</th>
@@ -311,6 +323,9 @@ function Home() {
                         {item.subItems.map((itemList, index) => {
                           return (
                             <tr key={index}>
+                              <td className="text-center border-[1px]">
+                                {Number(index) + 1}
+                              </td>
                               <td className="text-center border-[1px]">
                                 {itemList.value}
                               </td>
@@ -363,7 +378,7 @@ function Home() {
                     <p>Discount:</p>
                     <p>
                       -{formData.currency}
-                      {discount}({discountRate}%)
+                      {discount}({formData.discountRate}%)
                     </p>
                   </div>
                   <div className="flex justify-between items-center">
@@ -383,8 +398,12 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="">
+
+            <div className="w-full">
               <p className="text-justify">{formData.note}</p>
+            </div>
+            <div className=" w-full flex justify-end">
+              <img className="w-[140px]" src={signature} alt="" />
             </div>
           </div>
         </div>
@@ -409,11 +428,14 @@ function Home() {
                   Download
                 </button>
               )}
-              content={() => componentRef.current}
+              content={() => componentInvoiceRef.current}
             />
           </div>
-          <div ref={componentRef} className="flex flex-col p-2 gap-5">
-            <div className="flex justify-between">
+          <div ref={componentInvoiceRef} className="flex flex-col p-2 gap-5">
+            <div className="flex flex-col">
+              <div className="self-end">
+                <img src={logo} className="w-[55px]" alt="" />
+              </div>
               <div className="flex flex-col gap-0">
                 <p className="text-2xl">Blue Soltech</p>
                 <p className="text-gray-500">
@@ -425,24 +447,29 @@ function Home() {
                   {formData.dueDate.getFullYear()}
                 </p>
               </div>
-              <div className="">
-                <img src={logo} className="w-[55px]" alt="" />
-              </div>
             </div>
             <div className="flex gap-8">
-              <div className="flex flex-col">
+              <div className="flex max-w-[30%] flex-col">
                 <p className="text-lg m-0 font-semibold">Billed to:</p>
                 <p className="text-sm m-0">{formData.billtoName}</p>
-                <p className="text-sm m-0">{formData.billtoAddress}</p>
-                <p className="text-sm m-0">{formData.billtoEmail}</p>
+                <p className="text-[11px] text-gray-400 m-0">
+                  {formData.billtoEmail}
+                </p>
+                <p className="text-[11px] text-gray-400 m-0">
+                  {formData.billtoAddress}
+                </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex max-w-[30%] flex-col">
                 <p className="text-lg m-0 font-semibold">Billed From:</p>
                 <p className="text-sm m-0">{formData.billfromName}</p>
-                <p className="text-sm m-0">{formData.billfromAddress}</p>
-                <p className="text-sm m-0">{formData.billfromEmail}</p>
+                <p className="text-[11px] font-light text-gray-400 m-0">
+                  {formData.billfromEmail}
+                </p>
+                <p className="text-[11px] font-light text-gray-400 m-0 ">
+                  {formData.billfromAddress}
+                </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex max-w-[30%] flex-col">
                 <p className="text-lg m-0 font-semibold">Date Of Issue</p>
                 <p className="text-sm m-0">
                   {formData.currentDate.getDate()}-
@@ -463,6 +490,7 @@ function Home() {
                     <table className="w-full border-[1px]">
                       <thead>
                         <tr className="border-[1px]">
+                          <th className="border-[1px]">Sr. no.</th>
                           <th className="border-[1px]">Particulars</th>
                           <th className="border-[1px]">Size</th>
                           <th className="border-[1px]">SqFt</th>
@@ -477,6 +505,9 @@ function Home() {
                         {item.subItems.map((itemList, index) => {
                           return (
                             <tr key={index}>
+                              <td className="text-center border-[1px]">
+                                {Number(index) + 1}
+                              </td>
                               <td className="text-center border-[1px]">
                                 {itemList.value}
                               </td>
@@ -529,7 +560,7 @@ function Home() {
                     <p>Discount:</p>
                     <p>
                       -{formData.currency}
-                      {discount}({discountRate}%)
+                      {discount}({formData.discountRate}%)
                     </p>
                   </div>
                   <div className="flex justify-between items-center">
@@ -551,6 +582,9 @@ function Home() {
             </div>
             <div className="">
               <p className="text-justify">{formData.note}</p>
+            </div>
+            <div className="flex justify-end">
+              <img src={signature} className="w-[140px]" alt="" />
             </div>
           </div>
         </div>
@@ -669,7 +703,7 @@ function Home() {
                 <h1 className="font-bold text-lg">Discount:</h1>
                 <p className="text-sm">
                   -{formData.currency}
-                  {discount} ({discountRate}%)
+                  {discount} ({formData.discountRate}%)
                 </p>
               </div>
               <div className="flex justify-between">
@@ -692,6 +726,7 @@ function Home() {
             <label htmlFor="note">Note</label>
             <textarea
               name="note"
+              value={formData.note}
               onChange={handleInputChange}
               type="text"
               className="w-full bg-blue-900 rounded-xl text-white p-2 focus:outline-none h-full"
@@ -746,11 +781,10 @@ function Home() {
               min="0.00"
               max="100.00"
               step="0.01"
-              value={taxRate}
+              name="taxRate"
+              value={formData.taxRate}
               className="w-[85%] h-[40px] rounded-l-lg p-2 focus:outline-none"
-              onChange={(e) => {
-                setTaxrate(e.target.value);
-              }}
+              onChange={handleInputChange}
             ></input>
             <div className="w-[15%] h-[41px] text-gray-400 rounded-r-lg text-md bg-gray-100 border-gray-300 border-[1px] flex items-center justify-center">
               %
@@ -763,11 +797,10 @@ function Home() {
               min="0.00"
               max="100.00"
               step="0.01"
-              value={discountRate}
+              name="discountRate"
+              value={formData.discountRate}
               className="w-[85%] h-[40px] rounded-l-lg p-2 focus:outline-none"
-              onChange={(e) => {
-                setDiscountrate(e.target.value);
-              }}
+              onChange={handleInputChange}
             ></input>
             <div className="w-[15%] h-[41px] text-gray-400 rounded-r-lg text-md bg-gray-100 border-gray-300 border-[1px] flex items-center justify-center">
               %
