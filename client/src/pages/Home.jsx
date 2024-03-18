@@ -4,7 +4,6 @@ import DatePicker from "rsuite/DatePicker";
 import { RxCrossCircled } from "react-icons/rx";
 
 import Category from "../components/Item/Category";
-import logo from "../assets/logo.png";
 import signature from "../assets/signature.png";
 
 import { useSelector } from "react-redux";
@@ -290,7 +289,7 @@ function Home() {
           <div ref={componentRef} className="flex flex-col p-2 gap-5">
             <div className="flex flex-col">
               <div className="self-end">
-                <img src={logo} className="w-[55px]" alt="" />
+                <img src={userData?.logo?.url} className="w-[55px]" alt="" />
               </div>
               <div className="flex flex-col gap-0">
                 <p className="text-2xl font-semibold">Quotation</p>

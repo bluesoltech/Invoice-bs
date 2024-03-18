@@ -82,7 +82,7 @@ function Profile() {
 
   return (
     <div className="flex items-center justify-center pt-5 w-full">
-      <div className="bg-blue-900 rounded-xl w-[500px] h-[700px] flex flex-col p-2 overflow-y-auto">
+      <div className="bg-blue-900 rounded-xl md:w-[50vw] h-[90vh] flex flex-col p-2 overflow-y-auto">
         <h1 className="text-center text-xl text-white uppercase">Profile</h1>
         <form
           className="my-5 flex flex-col gap-2"
@@ -129,7 +129,7 @@ function Profile() {
                 onChange={(e) => handleChange(e)}
                 name="gstin"
                 required
-                type="text"
+                type="number"
                 id="gstin"
                 className="p-1 rounded focus:outline-none"
               />

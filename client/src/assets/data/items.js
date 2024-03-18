@@ -42,7 +42,7 @@ const data = [
     symbol: "T-Shirt",
     size: "Mix",
     sqft: "",
-    qty:  1,
+    qty: 1,
     days: "",
     details: "",
     rate: 110,
@@ -58,7 +58,7 @@ const data = [
     days: "1",
     details: "",
     rate: 120,
-    amount:240000,
+    amount: 240000,
   },
   {
     id: 6,
@@ -234,7 +234,7 @@ const data = [
     symbol: "Entry Carpet",
     size: "6x300",
     sqft: 300,
-    qty: ,
+    qty: 2,
     days: "",
     details: "ft",
     rate: 2400,
@@ -286,7 +286,7 @@ const data = [
     days: "2",
     details: "frame with flax",
     rate: 26000,
-    amount:26000,
+    amount: 26000,
   },
   {
     id: 25,
@@ -407,7 +407,7 @@ const data = [
     days: "1",
     details: "",
     rate: 800,
-    amount:16000,
+    amount: 16000,
   },
   {
     id: 39,
@@ -419,7 +419,7 @@ const data = [
     days: "",
     details: "",
     rate: 45,
-    amount:31500,
+    amount: 31500,
   },
   {
     id: 40,
@@ -491,9 +491,9 @@ const data = [
     days: "",
     details: "",
     rate: 4500,
-    amount:4500,
+    amount: 4500,
   },
-  
+
   {
     id: 49,
     value: "Mojo barricading for VIP & Main stage area",
@@ -708,7 +708,7 @@ const data = [
     days: "1",
     details: "As required",
     rate: 1,
-    amount:100000,
+    amount: 100000,
   },
   {
     id: 68,
@@ -780,7 +780,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
-    amount:35000,
+    amount: 35000,
   },
   {
     id: 74,
@@ -792,7 +792,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
-    amount:35000,
+    amount: 35000,
   },
   {
     id: 75,
@@ -804,7 +804,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1,
-    amount:35000,
+    amount: 35000,
   },
   {
     id: 76,
@@ -997,7 +997,7 @@ const data = [
     days: "1",
     details: "",
     rate: 8000,
-    amount:8000,
+    amount: 8000,
   },
   {
     id: 93,
@@ -1034,7 +1034,7 @@ const data = [
     days: "1",
     details: "",
     rate: 6500,
-    amount:6500,
+    amount: 6500,
   },
   {
     id: 97,
@@ -1245,11 +1245,13 @@ const data = [
     id: 116,
     value: "Haldi Entry",
     symbol: "Haldi Entry (with Dholi)",
-    size: "", sqft: "",
+    size: "",
+    sqft: "",
     qty: 6,
-    days: "1", details: "",
+    days: "1",
+    details: "",
     rate: 1500,
-    amount: 9000
+    amount: 9000,
   },
   {
     id: 117,
@@ -1261,7 +1263,7 @@ const data = [
     days: "1",
     details: "",
     rate: 4000,
-    amount: 4000
+    amount: 4000,
   },
   {
     id: 118,
@@ -1273,7 +1275,7 @@ const data = [
     days: "1",
     details: "",
     rate: 7200,
-    amount: 7200
+    amount: 7200,
   },
   {
     id: 119,
@@ -1284,8 +1286,8 @@ const data = [
     qty: 1,
     days: "1",
     details: "",
-    rate: 21000
-    , amount: 21000
+    rate: 21000,
+    amount: 21000,
   },
   {
     id: 120,
@@ -1297,7 +1299,7 @@ const data = [
     days: "1",
     details: "",
     rate: 650,
-    amount: 3900
+    amount: 3900,
   },
   {
     id: 122,
@@ -1309,7 +1311,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1500,
-    amount: 15000
+    amount: 15000,
   },
   {
     id: 123,
@@ -1321,7 +1323,7 @@ const data = [
     days: "1",
     details: "",
     rate: 3500,
-    amount: 3500
+    amount: 3500,
   },
   {
     id: 124,
@@ -1333,7 +1335,7 @@ const data = [
     days: "1",
     details: "",
     rate: 1000,
-    amount: 10000
+    amount: 10000,
   },
   {
     id: 125,
@@ -1345,7 +1347,7 @@ const data = [
     days: "1",
     details: "",
     rate: 800,
-    amount: 4000
+    amount: 4000,
   },
   {
     id: 126,
@@ -1357,7 +1359,7 @@ const data = [
     days: "1",
     details: "",
     rate: 4500,
-    amount: 4500
+    amount: 4500,
   },
   {
     id: 127,
@@ -1369,7 +1371,7 @@ const data = [
     days: "1",
     details: "",
     rate: 5000,
-    amount: 5000
+    amount: 5000,
   },
   {
     id: 128,
@@ -1381,7 +1383,7 @@ const data = [
     days: "1",
     details: "",
     rate: 3500,
-    amount: 52250
+    amount: 52250,
   },
   {
     id: 129,
@@ -1393,7 +1395,7 @@ const data = [
     days: "1",
     details: "",
     rate: 450,
-    amount: 450
+    amount: 450,
   },
   {
     id: 130,
@@ -1405,7 +1407,7 @@ const data = [
     days: "1",
     details: "",
     rate: 2000,
-    amount: 50000
+    amount: 50000,
   },
   {
     id: 132,
@@ -1417,7 +1419,7 @@ const data = [
     days: "1",
     details: "",
     rate: 5400,
-    amount: 5400
+    amount: 5400,
   },
   {
     id: 132,
@@ -1429,132 +1431,131 @@ const data = [
     days: "1",
     details: "",
     rate: 18500,
-    amount: 18500
+    amount: 18500,
   },
   {
     id: 133,
-    value: 'Main Stage',
-    symbol: 'Main Stage',
-    size: '',
-    sqft: '',
+    value: "Main Stage",
+    symbol: "Main Stage",
+    size: "",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: '50x30',
+    days: "1",
+    details: "50x30",
     rate: 97500,
-    amount: 97500
+    amount: 97500,
   },
   {
     id: 134,
-    value: 'Carpet',
-    symbol: 'Carpet',
-    size: '150 fut',
-    sqft: '',
+    value: "Carpet",
+    symbol: "Carpet",
+    size: "150 fut",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: '',
+    days: "1",
+    details: "",
     rate: 22000,
-    amount: 22000
+    amount: 22000,
   },
   {
     id: 135,
-    value: 'Box Trust',
-    symbol: 'Box Trust',
-    size: '45x30',
-    sqft: '',
+    value: "Box Trust",
+    symbol: "Box Trust",
+    size: "45x30",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: '',
+    days: "1",
+    details: "",
     rate: 80000,
-    amount: 80000
+    amount: 80000,
   },
   {
     id: 136,
-    value: 'LED Beg drop',
-    symbol: 'LED Beg drop',
-    size: '50x14=560sft',
-    sqft: '560',
+    value: "LED Beg drop",
+    symbol: "LED Beg drop",
+    size: "50x14=560sft",
+    sqft: "560",
     qty: 1,
-    days: '1',
-    details: '',
+    days: "1",
+    details: "",
     rate: 77000,
-    amount: 77000
+    amount: 77000,
   },
   {
     id: 137,
-    value: 'LED Vj jockey',
-    symbol: 'LED Vj jockey',
-    size: '50x14=560sft',
-    sqft: '560',
+    value: "LED Vj jockey",
+    symbol: "LED Vj jockey",
+    size: "50x14=560sft",
+    sqft: "560",
     qty: 1,
-    days: '1',
-    details: '',
+    days: "1",
+    details: "",
     rate: 17000,
-    amount: 17000
+    amount: 17000,
   },
   {
     id: 138,
-    value: 'LED Wall front for the stage',
-    symbol: 'LED Wall front for the stage',
-    size: '10*10',
-    sqft: '',
+    value: "LED Wall front for the stage",
+    symbol: "LED Wall front for the stage",
+    size: "10*10",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: '',
+    days: "1",
+    details: "",
     rate: 5000,
     amount: 5000,
   },
 
-                                    // light ___________________________________________________________________________________________
+  // light ___________________________________________________________________________________________
 
   {
     id: 139,
-    value: 'Main area general lights',
-    symbol: 'Main area general lights',
-    size: '',
-    sqft: '',
+    value: "Main area general lights",
+    symbol: "Main area general lights",
+    size: "",
+    sqft: "",
     qty: 100,
-    days: '1',
-    details: '',
+    days: "1",
+    details: "",
     rate: 450,
-    amount: 45000
+    amount: 45000,
   },
-
 
   {
     id: 144,
-    value: 'Main area Cabling and panels',
-    symbol: 'Main area Cabling and panels',
-    size: '',
-    sqft: '',
+    value: "Main area Cabling and panels",
+    symbol: "Main area Cabling and panels",
+    size: "",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: 'mix',
+    days: "1",
+    details: "mix",
     rate: 20000,
-    amount: 20000
+    amount: 20000,
   },
   {
     id: 145,
-    value: 'Main Event Gensets',
-    symbol: 'Main Event Gensets',
-    size: '',
-    sqft: '',
+    value: "Main Event Gensets",
+    symbol: "Main Event Gensets",
+    size: "",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: '125KVA Diesel Extra',
+    days: "1",
+    details: "125KVA Diesel Extra",
     rate: 6500,
-    amount: 6500
+    amount: 6500,
   },
   {
     id: 146,
-    value: 'Parking area Gensets',
-    symbol: 'Parking area Gensets',
-    size: '',
-    sqft: '',
+    value: "Parking area Gensets",
+    symbol: "Parking area Gensets",
+    size: "",
+    sqft: "",
     qty: 1,
-    days: '1',
-    details: '125KVA Diesel Extra',
+    days: "1",
+    details: "125KVA Diesel Extra",
     rate: 6500,
-    amount: 6500
+    amount: 6500,
   },
   {
     id: 147,
@@ -1566,7 +1567,7 @@ const data = [
     days: "1",
     details: "All Pooja Flower include",
     rate: 6500,
-    amount: 6500
+    amount: 6500,
   },
   {
     id: 148,
@@ -1578,7 +1579,7 @@ const data = [
     days: "1",
     details: "All Pooja Flower include",
     rate: 6500,
-    amount: 6500
+    amount: 6500,
   },
   {
     id: 149,
@@ -1590,7 +1591,7 @@ const data = [
     days: "",
     details: "",
     rate: 0,
-    amount: 0
+    amount: 0,
   },
   {
     id: 150,
@@ -1602,7 +1603,7 @@ const data = [
     days: " ",
     details: "",
     rate: 3000,
-    amount: 36000
+    amount: 36000,
   },
   {
     id: 151,
@@ -1614,7 +1615,7 @@ const data = [
     days: "4",
     details: "",
     rate: 111000,
-    amount: 111000
+    amount: 111000,
   },
   {
     id: 152,
@@ -1626,7 +1627,7 @@ const data = [
     days: "",
     details: "",
     rate: 20,
-    amount: 2000
+    amount: 2000,
   },
   {
     id: 153,
@@ -1638,7 +1639,7 @@ const data = [
     days: "3",
     details: "mix Flower",
     rate: 0,
-    amount: 26000
+    amount: 26000,
   },
   {
     id: 155,
@@ -1650,7 +1651,7 @@ const data = [
     days: "4",
     details: "SOS*",
     rate: 6500,
-    amount: 6500
+    amount: 6500,
   },
   {
     id: 156,
@@ -1662,7 +1663,7 @@ const data = [
     days: "4",
     details: "",
     rate: 5500,
-    amount: 5500
+    amount: 5500,
   },
   {
     id: 157,
@@ -1674,7 +1675,7 @@ const data = [
     days: "",
     details: "",
     rate: 38000,
-    amount: 38000
+    amount: 38000,
   },
   {
     id: 158,
