@@ -10,20 +10,18 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <AuthContextProvider>
-          <ToastContainer
-            theme="dark"
-            position="top-right"
-            autoClose={3000}
-            closeOnClick
-            pauseOnHover={false}
-          />
-          <App />
-        </AuthContextProvider>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <ToastContainer
+          theme="dark"
+          position="top-right"
+          autoClose={3000}
+          closeOnClick
+          pauseOnHover={false}
+        />
+        <App />
+      </AuthContextProvider>
+    </BrowserRouter>
+  </Provider>
 );

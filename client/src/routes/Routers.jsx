@@ -4,6 +4,8 @@ import Signup from "../pages/Signup";
 
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import Profile from "../pages/Profile";
+// import ProtectedProfileRoute from "./ProtectedProfileRoute";
 
 const Routers = () => {
   return (
@@ -17,10 +19,10 @@ const Routers = () => {
         }
       />
       <Route
-        path="/home"
+        path="/profile"
         element={
           <ProtectedRoute>
-            <Home />
+            <Profile />
           </ProtectedRoute>
         }
       />

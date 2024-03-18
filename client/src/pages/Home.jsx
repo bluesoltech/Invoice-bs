@@ -15,6 +15,8 @@ import { BASE_URL } from "../config";
 import { authContext } from "../context/AuthContext";
 import Invoice from "../components/Invoices/Invoice";
 
+import { useNavigate } from "react-router-dom";
+
 function addSubItemsAmount(subcategories) {
   return subcategories.map((subcategory) => {
     const totalAmount = subcategory.subItems.reduce((acc, currentItem) => {
@@ -29,9 +31,14 @@ function addSubItemsAmount(subcategories) {
 }
 
 function Home() {
+  const navigate = useNavigate();
   // const [itemCount, setitemCount] = useState(1);
   let { user } = useContext(authContext);
   const subcategories = useSelector((state) => state.category);
+  const [userData, setUserData] = useState({});
+
+  // console.log(userData);
+
   // console.log(subcategories);
   const [title, setTitle] = useState("");
   // console.log(total);
@@ -73,20 +80,22 @@ function Home() {
     billtoName: "",
     billtoEmail: "",
     billtoAddress: "",
-    billfromName: "Blue Soltech",
-    billfromEmail: "info@bluesoltech.com",
-    billfromAddress:
-      "102, Solaris Business Hub, Bhuyangdev, Sola Road, Ahmedabad, Gujarat 380063",
+    gstin: "",
+    phone: "",
+    pan: "",
     note: "",
   });
-
+  // console.log(formData);
   const handleGetNewInvoiceID = async () => {
     try {
       const res = await fetch(`${BASE_URL}/invoice/getNewInvoiceId`, {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          userId: user,
+        }),
       });
 
       const result = await res.json();
@@ -102,7 +111,36 @@ function Home() {
   };
 
   useEffect(() => {
+    const handleProfileCheck = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/profile/get`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user: user,
+          }),
+        });
+
+        const result = await res.json();
+
+        if (!res.ok) {
+          throw new Error(result.message);
+        }
+        // console.log(result);
+        if (result.status == false) {
+          navigate("/profile");
+        } else {
+          setUserData(result.data[0]);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     if (formData.invoiceId == "") {
+      handleProfileCheck();
       handleGetNewInvoiceID();
     }
   }, []);
@@ -171,7 +209,7 @@ function Home() {
         throw new Error(result.message);
       }
       toast.success(result.message);
-      handleNew();
+      // handleNew();
     } catch (err) {
       toast.error(err.message);
     }
@@ -255,10 +293,11 @@ function Home() {
                 <img src={logo} className="w-[55px]" alt="" />
               </div>
               <div className="flex flex-col gap-0">
-                <p className="text-2xl">Blue Soltech</p>
+                <p className="text-2xl font-semibold">Quotation</p>
                 <p className="text-gray-500">
                   Quotation ID: {formData.invoiceId}
                 </p>
+
                 {/* <p className="text-gray-500 m-0">
                   Due Date: {formData.dueDate.getDate()}-
                   {formData.dueDate.getMonth() + 1}-
@@ -268,7 +307,7 @@ function Home() {
             </div>
             <div className="flex gap-8">
               <div className="flex max-w-[30%] flex-col">
-                <p className="text-lg  m-0 font-semibold">Billed to:</p>
+                <p className="text-lg  m-0 font-semibold">Quotation to:</p>
                 <p className="text-sm m-0">{formData.billtoName}</p>
                 <p className="text-[11px] text-gray-400 m-0">
                   {formData.billtoEmail}
@@ -278,13 +317,13 @@ function Home() {
                 </p>
               </div>
               <div className="flex max-w-[30%] flex-col">
-                <p className="text-lg m-0 font-semibold">Billed From:</p>
-                <p className="text-sm m-0">{formData.billfromName}</p>
+                <p className="text-lg m-0 font-semibold">Quotation From:</p>
+                <p className="text-sm m-0">{userData.name}</p>
                 <p className="text-[11px] font-light text-gray-400 m-0">
-                  {formData.billfromEmail}
+                  {userData.email}
                 </p>
                 <p className="text-[11px] font-light text-gray-400 m-0">
-                  {formData.billfromAddress}
+                  {userData.address}
                 </p>
               </div>
               <div className="flex max-w-[30%] flex-col">
@@ -434,61 +473,134 @@ function Home() {
           <div ref={componentInvoiceRef} className="flex flex-col p-2 gap-5">
             <div className="flex flex-col">
               <div className="self-end">
-                <img src={logo} className="w-[55px]" alt="" />
+                <img src={userData?.logo?.url} className="w-[30px]" alt="" />
               </div>
               <div className="flex flex-col gap-0">
-                <p className="text-2xl">Blue Soltech</p>
-                <p className="text-gray-500">
+                <p className="text-2xl text-center uppercase">Invoice</p>
+                {/* <p className="text-gray-500">
                   Invoice ID: {formData.invoiceId}
                 </p>
                 <p className="text-gray-500 m-0">
                   Due Date: {formData.dueDate.getDate()}-
                   {formData.dueDate.getMonth() + 1}-
                   {formData.dueDate.getFullYear()}
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-8">
-              <div className="flex max-w-[30%] flex-col">
-                <p className="text-lg m-0 font-semibold">Billed to:</p>
-                <p className="text-sm m-0">{formData.billtoName}</p>
-                <p className="text-[11px] text-gray-400 m-0">
-                  {formData.billtoEmail}
-                </p>
-                <p className="text-[11px] text-gray-400 m-0">
-                  {formData.billtoAddress}
-                </p>
-              </div>
-              <div className="flex max-w-[30%] flex-col">
-                <p className="text-lg m-0 font-semibold">Billed From:</p>
-                <p className="text-sm m-0">{formData.billfromName}</p>
-                <p className="text-[11px] font-light text-gray-400 m-0">
-                  {formData.billfromEmail}
-                </p>
-                <p className="text-[11px] font-light text-gray-400 m-0 ">
-                  {formData.billfromAddress}
-                </p>
-              </div>
-              <div className="flex max-w-[30%] flex-col">
-                <p className="text-lg m-0 font-semibold">Date Of Issue</p>
-                <p className="text-sm m-0">
-                  {formData.currentDate.getDate()}-
-                  {formData.currentDate.getMonth() + 1}-
-                  {formData.currentDate.getFullYear()}
-                </p>
+                </p> */}
+                <table className="my-4">
+                  <tbody className="text-[11px]">
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1 font-bold">From :</td>
+                      <td className="border-[1px] p-1">
+                        <p className="m-0">{userData.name}</p>
+                        <p className="m-0 text-gray-400">{userData.address}</p>
+                      </td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1 font-bold">GSTIN :</td>
+                      <td className="border-[1px] p-1">{userData.gstin}</td>
+                      <td className="border-[1px] p-1 font-bold">
+                        Invoice No. :
+                      </td>
+                      <td className="border-[1px] p-1">{formData.invoiceId}</td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">PAN :</td>
+                      <td className="border-[1px] p-1">{userData.pan}</td>
+                      <td className="border-[1px] p-1  font-bold">
+                        Invoice Issue Date :
+                      </td>
+                      <td className="border-[1px] p-1">
+                        {formData.currentDate.getDate()}-
+                        {formData.currentDate.getMonth() + 1}-
+                        {formData.currentDate.getFullYear()}
+                      </td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">Phone :</td>
+                      <td className="border-[1px] p-1">{userData.phone}</td>
+                      <td className="border-[1px] p-1  font-bold">
+                        Invoice Due Date :
+                      </td>
+                      <td className="border-[1px] p-1">
+                        {formData.dueDate.getDate()}-
+                        {formData.dueDate.getMonth() + 1}-
+                        {formData.dueDate.getFullYear()}
+                      </td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">E-mail :</td>
+                      <td className="border-[1px] p-1">{userData.email}</td>
+                      <td className="border-[1px] p-1  font-bold"></td>
+                      <td className="border-[1px] p-1"></td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">State :</td>
+                      <td className="border-[1px] p-1 ">{userData.state}</td>
+                      <td className="border-[1px] p-1  font-bold">Code :</td>
+                      <td className="border-[1px] p-1">{userData.statecode}</td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="p-3"></td>
+                    </tr>
+                    <tr className="border-[1px] bg-gray-200">
+                      <td></td>
+                      <td className="p-1 text-[14px] font-semibold">
+                        Billing Details
+                      </td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">To :</td>
+                      <td className="border-[1px] p-1">
+                        <p className="m-0">{formData.billtoName}</p>
+                        <p className="m-0 text-gray-400">
+                          {formData.billtoAddress}
+                        </p>
+                      </td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">GSTIN :</td>
+                      <td className="border-[1px] p-1 ">{formData.gstin}</td>
+                      <td className="border-[1px] p-1  font-bold">PAN :</td>
+                      <td className="border-[1px] p-1">{formData.pan}</td>
+                    </tr>
+                    <tr className="border-[1px]">
+                      <td className="border-[1px] p-1  font-bold">Phone :</td>
+                      <td className="border-[1px] p-1 ">{formData.phone}</td>
+                      <td className="border-[1px] p-1  font-bold">E-mail :</td>
+                      <td className="border-[1px] p-1">
+                        {formData.billtoEmail}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             <div className="w-full border-[1px]">
-              <h1 className="text-center uppercase font-ligth text-lg">
+              <h1 className="text-center uppercase font-semibold text-lg">
                 {title}
               </h1>
-              <p className="text-center text-gray-400 font-light">Invoice</p>
+              {/* <p className="text-center text-gray-400 font-light">Invoice</p> */}
               {allAmount.map((item, index) => {
                 return (
-                  <div key={index} className="w-full p-2 my-2">
-                    <h1 className="text-lg text-start my-2">{item.name}</h1>
+                  <div key={index} className="w-full px-2">
                     <table className="w-full border-[1px]">
                       <thead>
+                        <tr className="border-[1px]">
+                          <td className="bg-black text-white text-center text-md font-bold">
+                            {Number(index) + 1}
+                          </td>
+                          <td className="text-md bg-black text-white p-1 font-semibold">
+                            {item.name}
+                          </td>
+                          <td className="bg-black"></td>
+                          <td className="bg-black"></td>
+                          <td className="bg-black"></td>
+                          <td className="bg-black"></td>
+                          <td className="bg-black"></td>
+                          <td className="bg-black"></td>
+                          <td className="bg-black"></td>
+                        </tr>
                         <tr className="border-[1px]">
                           <th className="border-[1px]">Sr. no.</th>
                           <th className="border-[1px]">Particulars</th>
@@ -536,47 +648,144 @@ function Home() {
                             </tr>
                           );
                         })}
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td className="border-[1px] text-center font-semibold">
+                            Total:
+                          </td>
+                          <td className="text-center font-semibold">
+                            {formData.currency}
+                            {item.totalAmount}
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
-                    <p className="text-end text-md px-2 border-[1px] my-1">
-                      <span className="font-bold">Total:</span>{" "}
-                      {formData.currency}
-                      {item.totalAmount}
-                    </p>
                   </div>
                 );
               })}
               <div className="w-full mt-5 border-t-[1px] border-gray-200"></div>
-              <div className="flex justify-end">
-                <div className="w-[50%] flex flex-col gap-0 p-5">
-                  <div className="flex justify-between items-center">
+              <div className="flex justify-between">
+                <div className="w-[50%] ">
+                  <table className="border-[1px] w-full">
+                    <thead>
+                      <tr className="border-[1px]">
+                        <td className="bg-gray-300"></td>
+                        <td className="text-lg font-semibold bg-gray-300">
+                          Bank Details
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-[1px]">
+                        <td className="font-bold border-[1px] p-1">Name :</td>
+                        <td className=" border-[1px] p-1"> {userData.name}</td>
+                      </tr>
+                      <tr className="border-[1px]">
+                        <td className="font-bold border-[1px] p-1">Bank :</td>
+                        <td className=" border-[1px] p-1 text-[11px]">
+                          {userData.bank}
+                        </td>
+                      </tr>
+                      <tr className="border-[1px]">
+                        <td className="font-bold border-[1px] p-1">
+                          A/c no. :
+                        </td>
+                        <td className=" border-[1px] p-1 text-[11px]">
+                          {userData.acno}
+                        </td>
+                      </tr>
+                      <tr className="border-[1px]">
+                        <td className="font-bold border-[1px] p-1">IFSC :</td>
+                        <td className=" border-[1px] p-1 text-[11px]">
+                          {userData.ifsc}
+                        </td>
+                      </tr>
+                      <tr className="">
+                        <td className="p-1 font-bold text-[11px]">
+                          Corporate Office
+                        </td>
+                        <td className="p-1 text-[11px]">
+                          <p>{userData.oaddress}</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="w-[30%] flex flex-col gap-0 p-5 ">
+                  {/* <div className="flex justify-between items-center border-[1px]">
                     <p>Subtotal:</p>
                     <p>
                       {formData.currency}
                       {subTotal}
                     </p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center border-[1px]">
                     <p>Discount:</p>
                     <p>
                       -{formData.currency}
                       {discount}({formData.discountRate}%)
                     </p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center border-[1px]">
                     <p>Tax:</p>
                     <p>
                       {formData.currency}
                       {tax}
                     </p>
                   </div>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center border-[1px]">
                     <p className="font-bold text-lg">Total:</p>
                     <p className="font-bold text-lg">
                       {formData.currency}
                       {total}
                     </p>
-                  </div>
+                  </div> */}
+                  <table className="border-[1px] ">
+                    <tbody>
+                      <tr className="border-[1px] ">
+                        <td className="border-[1px] font-bold p-1 text-[11px]">
+                          SubTotal:{" "}
+                        </td>
+                        <td className="text-center text-[11px]">
+                          {formData.currency}
+                          {subTotal}
+                        </td>
+                      </tr>
+                      <tr className="border-[1px] ">
+                        <td className="border-[1px] font-bold p-1 text-[11px]">
+                          Discount:
+                        </td>
+                        <td className="text-center text-[11px]">
+                          -{formData.currency}
+                          {discount}({formData.discountRate}%)
+                        </td>
+                      </tr>
+                      <tr className="border-[1px] ">
+                        <td className="border-[1px] font-bold p-1 text-[11px]">
+                          Tax:
+                        </td>
+                        <td className="text-center text-[11px]">
+                          {formData.currency}
+                          {tax}
+                        </td>
+                      </tr>
+                      <tr className="border-[1px] ">
+                        <td className="border-[1px] font-bold p-1 text-md ">
+                          Total:
+                        </td>
+                        <td className="text-center text-md font-bold">
+                          {formData.currency}
+                          {total}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -657,30 +866,30 @@ function Home() {
               </div>
             </div>
             <div className="m-8 flex flex-col gap-4 w-full">
-              <label className="font-bold text-md">Bill From:</label>
+              <label className="font-bold text-md opacity-0">Bill From:</label>
               <div className="">
                 <input
-                  name="billfromName"
-                  value={formData.billfromName}
-                  placeholder="Who is the invoice/quotation from?"
+                  name="gstin"
+                  value={formData.gstin}
+                  placeholder="GSTIN?"
                   className="w-full bg-transparent border-b-[1px] border-gray-500 focus:outline-none"
                   onChange={handleInputChange}
                 ></input>
               </div>
               <div className="">
                 <input
-                  name="billfromEmail"
-                  value={formData.billfromEmail}
-                  placeholder="What's your Email?"
+                  name="phone"
+                  value={formData.phone}
+                  placeholder="What's their Phone Number?"
                   className="w-full bg-transparent border-b-[1px] border-gray-500 focus:outline-none"
                   onChange={handleInputChange}
                 ></input>
               </div>
               <div className="">
                 <input
-                  name="billfromAddress"
-                  value={formData.billfromAddress}
-                  placeholder="What's your Address?"
+                  name="pan"
+                  value={formData.pan}
+                  placeholder="What's their PAN?"
                   className="w-full bg-transparent border-b-[1px] border-gray-500 focus:outline-none"
                   onChange={handleInputChange}
                 ></input>

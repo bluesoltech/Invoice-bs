@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 
 import authRoute from "./route/auth.js";
 import invoiceRoute from "./route/invoice.js";
+import profileRoute from "./route/profile.js";
 
 dotenv.config({ path: "./.env" });
 
@@ -36,6 +37,7 @@ app.use(bodyParser.json());
 app.use(cors(corsOptions));
 app.use("/api/auth", authRoute);
 app.use("/api/invoice", invoiceRoute);
+app.use("/api/profile", profileRoute);
 
 app.listen(port, () => {
   connectDB();

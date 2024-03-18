@@ -1,71 +1,67 @@
 import mongoose from "mongoose";
 
-const InvoiceSchema = new mongoose.Schema({
+const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Types.ObjectId,
     ref: "User",
     required: true,
   },
-  invoiceID: {
+  name: {
     type: String,
     required: true,
   },
-  currency: {
+  address: {
     type: String,
     required: true,
   },
-  taxRate: {
+  state: {
+    type: String,
+    required: true,
+  },
+  statecode: {
     type: Number,
     required: true,
-  },
-  discountRate: {
-    type: Number,
-    required: true,
-  },
-  currentDate: {
-    type: Date,
-    required: true,
-  },
-  dueDate: {
-    type: Date,
-    // required: true,
-  },
-  billtoName: {
-    type: String,
-    required: true,
-  },
-  billtoEmail: {
-    type: String,
-    // required: true,
-  },
-  billtoAddress: {
-    type: String,
-    // required: true,
   },
   gstin: {
+    type: Number,
+    required: true,
+  },
+  pan: {
     type: String,
     required: true,
   },
   phone: {
     type: String,
-    // required: true,
+    required: true,
   },
-  pan: {
-    type: String,
-    // required: true,
-  },
-  note: {
-    type: String,
-    // required: true,
-  },
-  title: {
+  email: {
     type: String,
     required: true,
   },
-  items: {
-    type: Array,
+  code: {
+    type: String,
+    required: true,
+  },
+  logo: {
+    type: Object,
+    required: true,
+  },
+  bank: {
+    type: String,
+    required: true,
+  },
+  acno: {
+    type: String,
+    required: true,
+  },
+  ifsc: {
+    type: String,
+    required: true,
+  },
+  oaddress: {
+    type: String,
     required: true,
   },
 });
 
-export default mongoose.model("Invoice", InvoiceSchema);
+export default mongoose.model("Profile", ProfileSchema);

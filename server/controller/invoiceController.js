@@ -1,18 +1,10 @@
 import Invoice from "../models/InvoiceSchema.js";
-import { customAlphabet } from "nanoid";
-
-const nanoid = customAlphabet("0123456789", 10);
 
 export const save = async (req, res) => {
   const { user, formData, title, listings } = req.body;
   try {
     // Validate required fields
-    if (
-      !formData.invoiceId ||
-      !title ||
-      !formData.billfromName ||
-      !formData.billtoName
-    ) {
+    if (!formData.invoiceId || !title || !formData.billtoName) {
       return res.status(400).json({ message: "Please fill all the details" });
     }
 
@@ -28,9 +20,9 @@ export const save = async (req, res) => {
       billtoName: formData.billtoName,
       billtoEmail: formData.billtoEmail,
       billtoAddress: formData.billtoAddress,
-      billfromName: formData.billfromName,
-      billfromEmail: formData.billfromEmail,
-      billfromAddress: formData.billfromAddress,
+      gstin: formData.gstin,
+      phone: formData.phone,
+      pan: formData.pan,
       note: formData.note,
       title: title,
       items: listings,
@@ -96,16 +88,18 @@ export const getInvoices = async (req, res) => {
   }
 };
 export const getNewInvoiceId = async (req, res) => {
+  const { userId } = req.body;
   try {
-    let newInvoiceId = nanoid();
-    let invoice = await Invoice.findOne({ invoiceID: newInvoiceId });
+    let invoice = await Invoice.find({ user: userId });
 
-    while (invoice) {
-      newInvoiceId = nanoid();
-      invoice = await Invoice.findOne({ invoiceID: newInvoiceId });
-    }
+    // while (invoice) {
+    //   newInvoiceId = nanoid();
+    //   invoice = await Invoice.findOne({ invoiceID: newInvoiceId });
+    // }
 
-    res.status(200).json({ success: true, data: { invoiceId: newInvoiceId } });
+    res
+      .status(200)
+      .json({ success: true, data: { invoiceId: invoice.length + 1 } });
   } catch (error) {
     console.log(error);
     return res

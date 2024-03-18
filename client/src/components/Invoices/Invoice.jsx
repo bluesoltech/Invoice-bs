@@ -50,9 +50,9 @@ function Invoice({ setFormData, setTitle, setTaxrate, setDiscountrate }) {
       billtoName: invoice.billtoName,
       billtoEmail: invoice.billtoEmail,
       billtoAddress: invoice.billtoAddress,
-      billfromName: invoice.billfromName,
-      billfromEmail: invoice.billfromEmail,
-      billfromAddress: invoice.billfromAddress,
+      gstin: invoice.gstin,
+      phone: invoice.phone,
+      pan: invoice.pan,
       note: invoice.note,
     };
     // console.log(data);
